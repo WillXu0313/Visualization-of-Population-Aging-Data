@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>大数据统计展示大屏</title>
+		<link rel="stylesheet" href="../../ServiceVierTemplate/css/reset.css">
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link href="../../ServiceVierTemplate/css/bootstrap.min.css" rel="stylesheet">
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="../../ServiceVierTemplate/js/jquery.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="../../ServiceVierTemplate/js/bootstrap.min.js"></script>
+		<link href="../../ServiceVierTemplate/css/index.css" rel="stylesheet" />
+	</head>
+	<body>
+		<header>养老服务监督</header>
+		<div id="btn01"><a href="../../../../MapDataView/China/china.html">返回全国数据</a></div>
+		<div class="container m-20">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="box1">
+						<div class="title">护理人员数量</div>
+						<div class="box1_con" id="box1"></div>
+					</div>
+					<div class="box2 m-20">
+						<div class="title">服务项排行TOP 5</div>
+						<div class="box2_con" id="box2"></div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="box3">
+						<div class="title">数据概况</div>
+						<div class="box3_con">
+							<div class="box3_con_right">
+								<div class="box3_con_right_bot" id="box3_right"></div>
+							</div>
+						</div>
+					</div>
+					<div class="box4 m-20">
+						<div class="title">服务项目配置情况</div>
+						<div class="box4_con" id="box4"></div>
+					</div>
+				</div>
+				<div class="col-lg-3 box5">
+					<div class="title">出现情况占比</div>
+					<div class="box5_con">
+						<div class="box5_con_top" id="box5"></div>
+						<div class="title m-20">新闻速递</div>
+						<div class="box5_con_bot">
+							<ul>
+								<li><a href="https://www.gov.cn/gongbao/2023/issue_10506/202306/content_6885267.html">
+									中共中央办公厅国务院办公厅印发《关于推进基本养老服务体系建设的意见》
+								</a></li>
+								<li><a href="https://www.sohu.com/a/498922696_120961824">
+									2020年中国养老机构数量、养老床位数及养老服务发展趋势分析
+								</a></li>
+								<li><a href="https://roll.sohu.com/a/678062825_350221">
+									2023年中国智慧养老市场现状及发展前景预测分析
+								</a></li>
+								<li><a href="https://www.cn-healthcare.com/articlewm/20170712/content-1015953.html?appfrom=jkj">
+									透视中国养老产业现状及发展热点
+								</a></li>
+								<li><a href="https://www.163.com/dy/article/IA3KGF1B051480KF.html">
+									预见2023：《2023年中国养老产业全景图谱》(附市场规模、竞争格局和发展前景等)
+								</a></li>
+								<li><a href="https://www.sohu.com/a/401017356_366723">
+									数据丨2020年中国养老产业典型模式及城市案例数据监测分析
+								</a></li>
+								<li><a href="https://mp.weixin.qq.com/s?__biz=MzA5NjUwNjM5NA==&mid=2649673472&idx=1&sn=88abef3f963f822309f08c1be1139954&chksm=88b56875bfc2e163a00e054d91d7a735cc49cf08ac75624211347f06679785fda4b8388924f6&scene=27">
+									民政部最新数据：全国各类养老机构和设施36万个，床位812.6万张
+								</a></li>
+								<li><a href="https://www.mca.gov.cn/n152/n166/c43578/content.html">
+									国务院办公厅关于建立健全养老服务综合监管制度促进养老服务高质量发展的意见
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../ServiceVierTemplate/js/echarts.min.js"></script>
+		<script type="text/javascript" src="./js/box1.js"></script>
+		<script type="text/javascript" src="./js/box2.js"></script>
+		<script type="text/javascript" src="./js/box3_right.js"></script>
+		<script type="text/javascript" src="./js/box4.js"></script>
+		<script type="text/javascript" src="./js/box5.js"></script>
+	</body>
+</html>

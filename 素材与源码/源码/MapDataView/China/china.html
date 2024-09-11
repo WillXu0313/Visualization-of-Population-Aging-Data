@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>老有e养大数据平台</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/map.css">
+</head>
+
+<body>
+    <div class="data">
+
+        <div class="data-title">
+            <div class="title-center fl">应对人口老龄化的养老数据可视化设计</div>
+        </div>
+
+        <div id="btn01"><a href="../../PredictionView/trend.html">预测分析</a></div>
+        <div id="btn02"><a href="../../Cover/Welcome.html">返回封面</a></div>
+
+        <div class="data-content">
+            <div class="con-left fl">
+                <div class="left-top">S
+                    <div class="info">
+                        <div class="info-title">老龄化标准</div>
+                        <img src="img/bj-1.png" alt="" class="bj-1">
+                        <img src="img/bj-2.png" alt="" class="bj-2">
+                        <img src="img/bj-3.png" alt="" class="bj-3">
+                        <img src="img/bj-4.png" alt="" class="bj-4">
+                        <div class="info-main">
+                            <div class="info-1">
+                                <div class="info-img fl">
+                                    <img src="img/icon_1.svg" alt="">
+                                </div>
+                                <div class="info-text fl">
+                                    <p>65岁及以上人口比例达到&nbsp;<span>7%</span>&nbsp;</p>
+                                    <p>老龄化社会</p>
+                                </div>
+                            </div>
+                            <div class="info-2">
+                                <div class="info-img fl">
+                                    <img src="img/icon_2.svg" alt="">
+                                </div>
+                                <div class="info-text fl">
+                                    <p>65岁及以上人口比例达到&nbsp;<span>14%</span>&nbsp;</p>
+                                    <p>老龄社会</p>
+                                </div>
+                            </div>
+                            <div class="info-3">
+                                <div class="info-img fl">
+                                    <img src="img/icon_3.svg" alt="">
+                                </div>
+                                <div class="info-text fl">
+                                    <p>65岁及以上人口比例达到&nbsp;<span>20%</span>&nbsp;</p>
+                                    <p>深度老龄社会</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top-bottom">
+                        <div class="title">养老床位数</div>
+                        <img src="img/bj-1.png" alt="" class="bj-1">
+                        <img src="img/bj-2.png" alt="" class="bj-2">
+                        <img src="img/bj-3.png" alt="" class="bj-3">
+                        <img src="img/bj-4.png" alt="" class="bj-4">
+                        <div id="echarts_1" class="charts"></div>
+                    </div>
+                </div>
+                <div class="left-bottom">
+                    <div class="title">养老保险参保人数</div>
+                    <img src="img/bj-1.png" alt="" class="bj-1">
+                    <img src="img/bj-2.png" alt="" class="bj-2">
+                    <img src="img/bj-3.png" alt="" class="bj-3">
+                    <img src="img/bj-4.png" alt="" class="bj-4">
+                    <div id="echarts_2" class="charts"></div>
+                </div>
+            </div>
+            <div class="con-center fl">
+                <div class="map-num">
+                    <p>2023养老人数总数(万人)</p>
+                    <div class="num">
+                        <span>2</span>
+                        <span>,</span>
+                        <span>1</span>
+                        <span>6</span>
+                        <span>7</span>
+                        <span>6</span>
+                    </div>
+                </div>
+                <div class="cen-top" id="map"></div>
+                <div class="cen-bottom">
+                    <div class="title">老龄人口逐年统计图</div>
+                    <img src="img/bj-1.png" alt="" class="bj-1">
+                    <img src="img/bj-2.png" alt="" class="bj-2">
+                    <img src="img/bj-3.png" alt="" class="bj-3">
+                    <img src="img/bj-4.png" alt="" class="bj-4">
+                    <div id="echarts_3" class="charts"></div>
+                </div>
+            </div>
+            <div class="con-right fr">
+                <div class="right-top">
+                    <div class="title">人口年龄构成</div>
+                    <img src="img/bj-1.png" alt="" class="bj-1">
+                    <img src="img/bj-2.png" alt="" class="bj-2">
+                    <img src="img/bj-3.png" alt="" class="bj-3">
+                    <img src="img/bj-4.png" alt="" class="bj-4">
+                    <div id="echarts_4" class="charts"></div>
+                </div>
+                <div class="right-center">
+                    <div class="title">城乡老龄化对比</div>
+                    <img src="img/bj-1.png" alt="" class="bj-1">
+                    <img src="img/bj-2.png" alt="" class="bj-2">
+                    <img src="img/bj-3.png" alt="" class="bj-3">
+                    <img src="img/bj-4.png" alt="" class="bj-4">
+                    <div id="echarts_5" class="charts"></div>
+                </div>
+                <div class="right-bottom">
+                    <div class="title">抚养比</div>
+                    <img src="img/bj-1.png" alt="" class="bj-1">
+                    <img src="img/bj-2.png" alt="" class="bj-2">
+                    <img src="img/bj-3.png" alt="" class="bj-3">
+                    <img src="img/bj-4.png" alt="" class="bj-4">
+                    <div id="echarts_6" class="charts"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+        (function () {
+            function refreshCSS() {
+                var sheets = [].slice.call(document.getElementsByTagName("link"));
+                var head = document.getElementsByTagName("head")[0];
+                for (var i = 0; i < sheets.length; ++i) {
+                    var elem = sheets[i];
+                    var parent = elem.parentElement || head;
+                    parent.removeChild(elem);
+                    var rel = elem.rel;
+                    if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                        var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                        elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                    }
+                    parent.appendChild(elem);
+                }
+            }
+            var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+            var address = protocol + window.location.host + window.location.pathname + '/ws';
+            var socket = new WebSocket(address);
+            socket.onmessage = function (msg) {
+                if (msg.data == 'reload') window.location.reload();
+                else if (msg.data == 'refreshcss') refreshCSS();
+            };
+            if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                console.log('Live reload enabled.');
+                sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+            }
+        })();
+    }
+    else {
+        console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+    // ]]>
+
+</script>
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/china.js"></script>
+<script src="js/echarts.js"></script>
+<script src="js/js.js"></script>
+
+</html>

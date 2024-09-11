@@ -1,0 +1,1098 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>安徽省</title>
+<link href="../../DetailViewTemplate/css/style.css"  rel="stylesheet" type="text/css" media="all" />
+<script src="../../DetailViewTemplate/js/echarts.min.js" charset="utf-8"></script>
+<script src="../../DetailViewTemplate/js/jquery-3.2.0.min.js" charset="utf-8"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts.min.js"></script>
+<script src="anhui.js"></script>
+
+<body>
+<div class="wpbox">
+<div class="bnt">
+  <div class="topbnt_left fl">
+   
+  </div>
+  <h1 class="tith1 fl"  style="padding-left: 615px;">安徽省</h1>
+  <div class=" fr topbnt_right">
+    <ul>
+       <li><a href="../../../China/china.html">返回</a></li>
+       <li><a href="../ServiceView/service.html">服务监督</a></li>
+       <!-- <li><a href="#">分析报告</a></li>
+       
+       <li><a href="#">舆情</a></li> -->
+    </ul>
+   </ul>
+  </div>
+</div>
+<!-- bnt end -->
+<div class="left1">
+    <div class="aleftboxttop pt1",id="">
+      <h2 class="tith2">能力评估状况</h2>
+     <div id="nlpgzk" class="nlpgzk2"></div>
+
+    <!-- lefttoday_number end -->
+    </div>
+    <div class="aleftboxtmidd">
+      <h2 class="tith2 pt2" >养老人总数</h2>
+      <ul  class="data_show_box">
+          
+            <li class="data_cage">1</li>
+            <!-- //<li class="data_cage">0</li> -->
+            <!-- //<li class="data_cage" style="background-image: none;">5</li> -->
+            <li class="data_cage">2</li>
+            <li class="data_cage">0</li>
+            <li class="data_cage">0</li>            
+            <li class="data_cage">万</li>
+            <li class="data_cage">人</li>
+      </ul>
+        
+            
+            <!-- <ul class="depart_number_cage">
+                <li class="depart_name">男：</li>
+                <li class="depart_number">1,630</li>
+            </ul>
+            <ul class="depart_number_cage" style="margin-bottom: 0px;">
+                <li class="depart_name">女：</li>
+                <li class="depart_number">4,251</li>
+            </ul> -->
+      <div id="ylrzs" class="ylrzs"></div>         
+    </div>
+
+  <div class="aleftboxtbott">
+    <h2 class="tith2">老年人居住状况</h2>
+        <!-- <div class="lefttoday_tit height"><p class="fl">状态：已调节.æl,kmo</p><p class="fr">时间段：2018-06-10 至 2018-06-14</p></div> -->
+    <div id="aleftboxtmidd2" class="aleftboxtbott_cont2" ></div>
+  </div>
+</div>
+<!--  left1 end -->
+<div class="mrbox">
+      <div class="mrbox_topmidd" style="width: 69%;">
+          <div class="amiddboxttop">
+              <h2 class="tith2 pt1">实时地图</h2>
+                <div class="hot_map" id="topmap2"   >
+
+                </div>
+            </div>
+            <!--  amiddboxttop end-->
+                <div class="amidd_bott">
+                  <div class="amiddboxtbott1 fl" >
+                    <h2 class="tith2 pt1">近年老年人数统计</h2>
+                      <div class="lefttoday_tit"><p class="fr">2023-06-14</p></div>
+                    <div id="amiddboxtbott1" class="amiddboxtbott1content2" ></div>
+                  </div>
+
+                <div class="amiddboxtbott2 fl"><h2 class="tith2 pt1">年龄占比</h2>
+                    <div id="arightboxbott" class="amiddboxtbott2content"></div>
+                </div>
+            </div>
+            <!-- amidd_bott end -->
+          </div>
+        <!-- mrbox_top end -->
+        <div class="mrbox_top_right">
+          <div class="arightboxtop"><h2 class="tith2">老年人疾病排行统计</h2>
+            <div id="aleftboxtbott"  class="aleftboxtbott_contr"></div>
+          </div>
+            <div class="arightboxbott"><h2 class="tith2 ">婚姻状态统计</h2>
+
+              <div id="aleftboxtmiddr" class="arightboxbottcont2"></div>
+            </div>
+        </div>
+        <!-- mrbox_top_right end -->
+      </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+  var myChart = echarts.init(document.getElementById('ylrzs'));
+
+  option = {
+    grid: {
+        left: '5%',
+        right: '5%',
+        bottom: '5%',
+        top: '10%',
+        containLabel: true
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'none'
+        },
+        formatter: function(params) {
+            return params[0].name + '<br/>' +
+                "<span style='display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:rgba(36,207,233,0.9)'></span>" +
+                params[0].seriesName + ' : ' + Number((params[0].value.toFixed(4) / 10000).toFixed(2)).toLocaleString() + ' 万人<br/>'
+        }
+    },
+    backgroundColor: 'rgba(1,202,217,.2)',
+    xAxis: {
+        show: false,
+        type: 'value'
+    },
+    yAxis: [{
+        type: 'category',
+        inverse: true,
+        axisLabel: {
+            show: true,
+            textStyle: {
+                color: '#fff'
+            },
+        },
+        splitLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        axisLine: {
+            show: false
+        },
+        data: ['男', '女']
+    }, {
+        type: 'category',
+        inverse: true,
+        axisTick: 'none',
+        axisLine: 'none',
+        show: true,
+        axisLabel: {
+            textStyle: {
+                color: '#ffffff',
+                fontSize: '12'
+            },
+            formatter: function(value) {
+                if (value >= 10000) {
+                    return (value / 10000).toLocaleString() + '万';
+                } else {
+                    return value.toLocaleString();
+                }
+            },
+        },
+        data: [60000000, 42000000]
+    }],
+    series: [{
+            name: '人数',
+            type: 'bar',
+            zlevel: 1,
+            itemStyle: {
+                normal: {
+                    barBorderRadius: 30,
+                    color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
+                        offset: 0,
+                        color: 'rgb(57,89,255,1)'
+                    }, {
+                        offset: 1,
+                        color: 'rgb(46,200,207,1)'
+                    }]),
+                },
+            },
+            barWidth: 20,
+            data: [60000000, 42000000]
+        },
+        {
+            name: '背景',
+            type: 'bar',
+            barWidth: 20,
+            barGap: '-100%',
+            data: [70000000, 70000000],
+            itemStyle: {
+                normal: {
+                    color: 'rgba(24,31,68,1)',
+                    barBorderRadius: 30,
+                }
+            },
+        },
+    ]
+};
+  myChart.setOption(option);
+</script>
+<script type="text/javascript">
+  var myChart = echarts.init(document.getElementById('nlpgzk'));
+  option = {
+    backgroundColor: 'rgba(1,202,217,.2)',
+    toolbox: {
+        show: true,
+        feature: {
+            mark: {
+                show: true
+            },
+            dataView: {
+                show: true,
+                readOnly: false
+            },
+            magicType: {
+                show: true,
+                type: ['pie', 'funnel']
+            },
+            restore: {
+                show: true
+            },
+            saveAsImage: {
+                show: true
+            }
+        }
+    },
+    calculable: true,
+    "tooltip": {
+        "trigger": "item",
+        "formatter": "{a}<br/>{b}:{c}人"
+    },
+    
+    "calculable": true,
+    "legend": {
+        "icon": "circle",
+        "x": "center",
+        "y": "10%",
+        "data": [
+            "能力完好",
+            "轻度失能",
+            "中度失能",
+            "重度失能",
+        ],
+        "textStyle": {
+            "color": "#fff"
+        }
+    },
+    "series": [{
+        "name": "能力评估状况",
+        "type": "pie",
+        "radius": [
+            60,
+            30
+        ],
+        "avoidLabelOverlap": false,
+        "startAngle": 0,
+        "center": [
+            "50.1%",
+            "60%"
+        ],
+        "roseType": "area",
+        "selectedMode": "single",
+        "label": {
+            "normal": {
+                "show": true,
+                "formatter": "{c}人"
+            },
+            "emphasis": {
+                "show": true
+            }
+        },
+        "labelLine": {
+            "normal": {
+                "show": true,
+                "smooth": false,
+                "length": 20,
+                "length2": 10
+            },
+            "emphasis": {
+                "show": true
+            }
+        },
+        "data": [{
+                "value": 600.58,
+                "name": "能力完好",
+                "itemStyle": {
+                    "normal": {
+                        "color": "#f845f1"
+                    }
+                }
+            },
+            {
+                "value": 1100.58,
+                "name": "轻度失能",
+                "itemStyle": {
+                    "normal": {
+                        "color": "#ad46f3"
+                    }
+                }
+            },
+            {
+                "value": 1200.58,
+                "name": "中度失能",
+                "itemStyle": {
+                    "normal": {
+                        "color": "#5045f6"
+                    }
+                }
+            },
+            {
+                "value": 1300.58,
+                "name": "重度失能",
+                "itemStyle": {
+                    "normal": {
+                        "color": "#4777f5"
+                    }
+                }
+            }
+            
+        ],
+    }]
+};
+myChart.setOption(option);
+</script>
+<script type="text/javascript">
+var myChart = echarts.init(document.getElementById('aleftboxtmidd2'));
+var legendData = ['']; //图例
+var indicator = [{
+        text: '独居老人',
+        max: 300000,
+    },
+    {
+        text: '住养老人',
+        max: 300000
+    },
+    {
+        text: '与亲友同住',
+        max: 300000
+    },
+    {
+        text: '与子女同住',
+        max: 300000,
+        //  axisLabel: {show: true, textStyle: {fontSize: 18, color: '#333'}}
+    },
+    {
+        text: '未说明婚姻情况',
+        max: 300000
+    }
+    
+];
+
+var dataArr = [{
+        value: [200000,55512,300000,150460,222450],
+        name: legendData[0],
+        itemStyle: {
+            normal: {
+                lineStyle: {
+                    color: '#55d7f2',
+                },
+                // shadowColor: '#4A99FF',
+                // shadowBlur: 10,
+            },
+        },
+        areaStyle: {
+                normal: { // 单项区域填充样式
+                    color: {
+                        type: 'linear',
+                        x: 1, //右
+                        y: 0, //下
+                        x2: 1, //左
+                        y2: 1, //上
+                        colorStops: [{
+                            offset: 0,
+                            color: '#4A99FF'
+                        }, {
+                            offset: 1,
+                            color: 'rgba(0,0,0,0)'
+                        }],
+                        globalCoord: false
+                    },
+                    opacity: 1 // 区域透明度
+                }
+            }
+    }
+];
+var colorArr = ['#55d7f2', '#4BFFFC']; //颜色
+option = {
+    backgroundColor: 'rgba(1,202,217,.2)',
+    color: colorArr,
+    // legend: {
+    //     orient:'vertical',
+    //     // icon: 'circle', //图例形状
+    //     data: legendData,
+    //     top:20,
+    //     left:20,
+    //     textStyle: {
+    //         fontSize: 10,
+    //         fontWeight: 'bold',
+    //         color: '#00E4FF',
+    //     },
+    // },
+    radar: {
+        // shape: 'circle',
+        radius: 100,//缩放
+        center: ['50%', '51%'],
+        name: {
+            textStyle: {
+                color: '#fff',
+                fontSize: 12,
+                padding: [-8, -9]
+            },
+        
+        formatter: (text) =>{
+          text = text.replace(/\S{4}/g,function(match){
+            return match + '\n'
+          })
+          return text
+        },
+      },
+        indicator: indicator,
+        splitArea: { // 坐标轴在 grid 区域中的分隔区域，默认不显示。
+            show: true,
+            areaStyle: { // 分隔区域的样式设置。
+                color: ['rgba(255,255,255,0)', 'rgba(255,255,255,0)'], // 分隔区域颜色。分隔区域会按数组中颜色的顺序依次循环设置颜色。默认是一个深浅的间隔色。
+            }
+        },
+        axisLine: { //指向外圈文本的分隔线样式
+            lineStyle: {
+                color: '#153269'
+            }
+        },
+        splitLine: {
+            lineStyle: {
+                color: '#2b75d2', // 分隔线颜色
+                width: 2, // 分隔线线宽
+            }
+        },
+    },
+    series: [{
+        type: 'radar',
+        symbolSize: 8,
+        symbol: 'circle',
+        data: dataArr
+    }]
+};
+myChart.resize({
+  width: 305,
+  height: 280
+});
+
+myChart.setOption(option);
+
+
+</script>
+<script type="text/javascript">
+var myChart = echarts.init(document.getElementById('aleftboxtmiddr'));
+option = {
+color:['#c487ee', '#deb140', '#49dff0', '#00ffb4', '#6f81da'],
+  backgroundColor: 'rgba(1,202,217,.2)',
+  grid: {
+						left:60,
+						right:60,
+						top:20,
+						bottom:0,
+            containLabel: true
+					},
+            legend: {
+                left: 10,
+                top: 5,
+                textStyle:{
+                  fontSize:12,
+                  color:'rgba(255,255,255,.6)'
+                },
+                data: ['已婚','离异','丧偶','未婚','未说明婚姻情况']
+            },
+            calculable : true,
+            series : [
+
+                {
+                    name:'面积模式',
+                    type:'pie',
+                    radius : [40, 80],
+                    center : ['50%', '55%'],
+                    roseType : 'area',
+                    data:[
+                        {value:4500000, name:'已婚'},
+                        {value:2500000, name:'离异'},
+                        {value:1500000, name:'丧偶'},
+                        {value:1000000, name:'未婚'},
+                        {value:500000, name:'未说明婚姻情况'},
+
+                    ]
+                }
+            ]
+        };
+myChart.setOption(option);
+</script>
+<script type="text/javascript">
+var myChart = echarts.init(document.getElementById('aleftboxtbott'));
+data = [
+  {
+    name: "恶性肿瘤",
+    value: 13223624,
+
+  },
+  {
+    name: "脑卒中",
+    value: 11555542,
+
+  },
+  {
+    name: "冠心病",
+    value: 13452656,
+
+  },
+  {
+    name: "高血压",
+    value: 16542321,
+
+  },
+  {
+    name: "糖尿病",
+    value: 14231489,
+
+  },
+];
+
+getArrByKey = (data, k) => {
+  let key = k || "value";
+  let res = [];
+  if (data) {
+    data.forEach(function (t) {
+      res.push(t[key]);
+    });
+  }
+  return res;
+};
+
+getSymbolData = (data) => {
+  let arr = [];
+  for (var i = 0; i < data.length; i++) {
+    arr.push({
+      value: data[i].value,
+      symbolPosition: "end",
+    });
+  }
+  return arr;
+};
+
+opt = {
+  index: 0,
+};
+
+color = ["#A71A2B"];
+
+data = data.sort((a, b) => {
+  return b.value - a.value;
+});
+
+console.log(getSymbolData(data));
+
+option = {
+  backgroundColor: "rgba(1,202,217,.2)",
+  grid: {
+    top: "2%",
+    bottom: -15,
+    right: -40,
+    left: 30,
+    containLabel: true,
+  },
+  xAxis: {
+    show: false,
+  },
+  yAxis: [
+    {
+      triggerEvent: true,
+      show: true,
+      inverse: true,
+      data: getArrByKey(data, "name"),
+      axisLine: {
+        show: false,
+      },
+      splitLine: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+      axisLabel: {
+        show: false,
+        interval: 0,
+        color: "#fff",
+        align: "left",
+        margin: 80,
+        fontSize: 13,
+        formatter: function (value, index) {
+          return "{title|" + value + "}";
+        },
+        rich: {
+          title: {
+            width: 165,
+          },
+        },
+      },
+    },
+    {
+      triggerEvent: true,
+      show: true,
+      inverse: true,
+      data: getArrByKey(data, "name"),
+      axisLine: {
+        show: false,
+      },
+      splitLine: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+      axisLabel: {
+        interval: 0,
+        shadowOffsetX: "-20px",
+        color: ["#fff"],
+        align: "right",
+        verticalAlign: "bottom",
+        lineHeight: 30,
+        fontSize: 13,
+        formatter: function (value, index) {
+          return data[index].value;
+        }, // 修改这里的 formatter
+      },
+    },
+  ],
+  series: [
+    {
+      name: "XXX",
+      type: "pictorialBar",
+      symbol:
+      "image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAA6CAMAAADWZboaAAAAZlBMVEUAAABe3uVe3+Vf3uVf3+Zf3uVg3+Zg3+Zf3+Vi4OZh4OZg3+Z86/Bh3+Zi4Odj4Odi4OZ86/B76/B86/Bj4ed56+9x5+xn4umB7/N87PB36e+A7/N+7fF/7vJ/7vJ+7fGA7/OB7/PReX+lAAAAIXRSTlMABQkVDREmIhk3MR10LEFFPHh7cUprXE35h2XnqMLAp+mHAG9cAAAB5ElEQVRIx83WjU7CMBQFYIoiKMqU/XUboHv/l/Tce7t2XamDNSacETEmX86tlK2rx4py150o+MstMBLwWRfHKo6JCVxLnvmFGBjFQ58oF1//sUZhGy/ClSTWObgnL4O+bkeN4nY2okfNMbkRt9/vtxz8InoTsWplJSCzFxPmO8+GpSIByX3YQAuGDWtRKhKjCnxDXhF6Z4yxnZ20Wgko7BMRDmxtSGVaI4kdTIgb+zTYoJQlIMlDlmUFgrcDWWC201qSayqlTkiCddWWeV62VU0YlnpRi9VOKaSUsiyq/N0krwq2Ugt7lVpZl5BfHNiytjagMi+XYp0kCR45hMlivVQrE/uU5pXSrCB5bM6d1t2lOZItMqmliT3q5uVxqxzyW/ccfYLNKx7ZTeykMvNyac2yt2Fbc61MHLSC0rwoxbiNdlQ3GBm1NLHQsHUrtEXppR/ljNpW6DbSCoqlFiVoN6YdaFlgsSFVPs1BdT8OaB5QyQzVcaqWDows/zepxR8ObLglTrdtCRVuRNj4Rrxh+//0ke2f8KVL+Kon3GCSbmsJN9OUW3j6g0Ns+LgCij2u0h+Sghc8mlMPBMgdx5DFh59VmOVHrvmDnoNxCz3J7MFWsMuaLyR089xz/xhlfijvwutR8gv3zk6BLUUeCgAAAABJRU5ErkJggg==",
+      symbolSize: [50, 50],
+      symbolOffset: [20, 0],
+      z: 12,
+      itemStyle: {
+        normal: {
+          color: "#14b1eb",
+        },
+      },
+      data: getSymbolData(data),
+    },
+    {
+      name: "条",
+      type: "bar",
+      showBackground: true,
+      barBorderRadius: 30,
+      yAxisIndex: 0,
+      data: data,
+      barWidth: 10,
+      itemStyle: {
+        normal: {
+          color: new echarts.graphic.LinearGradient(
+            0,
+            0,
+            1,
+            0,
+            [
+              {
+                offset: 0,
+                color: "#A71A2B",
+              },
+              {
+                offset: 0.7,
+                color: "#A71A2B",
+              },
+              {
+                offset: 1,
+                color: "#5EDEE5",
+              },
+            ],
+            false
+          ),
+          barBorderRadius: 10,
+        },
+        barBorderRadius: 4,
+      },
+      label: {
+        normal: {
+          color: "#fff",
+          show: true,
+          position: [0, "-20px"],
+          textStyle: {
+            fontSize: 16,
+          },
+          formatter: function (a, b) {
+            return a.name;
+          },
+        },
+      },
+    },
+  ],
+};
+
+
+myChart.setOption(option);
+</script>
+<script type="text/javascript">
+  var myChart = echarts.init(document.getElementById('amiddboxtbott1'));
+  //数据
+var XName = ["2017", "2018", "2019", "2020", "2021", "2022", "2023"]
+var data1 = [67, 97, 51, 338, 32, 11, 1]
+var img = [
+    'image://data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABRCAYAAABFTSEIAAAACXBIWXMAAAsSAAALEgHS3X78AAAEp0lEQVR42u3cz4sjRRTA8W9Vd3Vn8mMmjj9WQWSRZQ+CsH+B7MnDIgiCd0E8CYJ/gOAIelo8ehUP/gF6WLw5/gMueFP2sIcF0dHd2Z1kknR11fOQZJJJMtlZd03H7HtQpNOTnpn+8Lrm1etmjIig8e/DKoECKqACKqCGAiqgAiqghgIqoAIqoIYCKqACKqCGAiqgAiqghgIqoAJudKTr+osZMNPvBUQBHwHsPF9fB9R0DeHMOQ6T6WOrhEzXBM4swDOL0M6CrArRVoq3t2dGUIb9fTvatg8ZZup1PDBgzPmy98mey6qfzjLz2WaWjEUZKEvGyi9nWyneMOvGIyFQo2Sbg4MUSChpU9IeTTUpJdsEajPZOJeJG5uBZj7rLLduWS5dGm6XNLEELOFUFj54ACJCaychkpDSASK3bwsXL0YgVpWJKwM0iy9Zy8HdGru7jvt3Pbu7w0wES7drTwAbjTHMGCsQcIAnYTC1/wRx0wEnl27JNgZI8HQ6Kc1mQq83RNzaMjPzXqDbjTQaJRFLxIyyMSxAXEkWrhrQzAAmo5HOjCQf7jflILxOkohL+aUPgV4vEGNJo+E5PAy02+UIMEwBxo0CPDP7Dg5SnEtpt1PA0e87XO25FOoh8IYIH2Y5b45RzGAQBiIltZoHxqMcjbksXAVgdc2EQMYzzzdotyeZWKuleULXJtwT4SODfC2QCWR+IF9KnjuX1Xbo99Op7LVE8iXlz0YBTk5SyLEEjo5OLuccEoFUvHfO+reuUPx4zftXAIcx1hdcF+/TvFab4A0Bs0VwqyhpVnkJT89/Q4DDQ0e77YCMwIUsFMeFZD856699URRvX4nxE4A/jbnxXp7v4Zw3ReGNSDHI8wFQjIafuoyn58L/fB6sth/Ybg9fez2TRC6QZcZYvgHsazF+MP7YCyLXcM7gvSXLDGBqYDg+NhwdmSpPoTrAkub0W+f4FSB1fDucIunMHSLpO8WAH0rSy8u+19MBCHB4OHzd2pI+CEUhpigEiN+l6WcdY252jLn5s7Wf472ImPcN8pUl/tEHoV4XWq1Ke4KrLmPsTA3oODpytFoOyJKSyzHyMSIxteWngMW5cSEdDJQUhTdZVgxOz3/+jFJm4+bA2e5JpNU6WZ4Fw99JwnWMKccwpeddP+B7GZTNUPKqybJy0O+Hs1YfMz9swwvpB8fbGDG0GuGkkK7V0hxSmZQpABI8l2z0v3sJf50qpAMJCd2qCulql3LD1lRGQjm7lEsDz0rkxTQOfiPPxUBcuJTbbhss/Y1eyi3NwsmKInmkZsKk5gtPUzNhvp11507CSy/X6XYStpvFudpZw1ZWIOF4Cq6SdtbKbioJyAhRTu3u9yMJXerN+ugvaQQsjcZ8Q3VnZwxlSDhe1lB9GjrSw5b+1avT8+Jw+979nNaOI6U3KpTrWAosxVQmygK4ld8X0ZtK/7eViExD7O1NQPb3T7fsl4/4sBpwYzPwjFbTo95Yl9l9Vd1YN1X/147HebSjary1AHyc5qc+XLQEQx9ve8Kg6xr6hKoCKqACKqCGAiqgAiqghgIqoAIqoIYCKqACKqCGAiqgAiqghgIq4JrHP8fEWV8FMTmOAAAAAElFTkSuQmCC',
+    'image://data:image/png;base64,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',
+    'image://data:image/png;base64,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',
+    'image://data:image/png;base64,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',
+]
+
+var data = [{
+    coords: [
+        ['2017', 67],
+        ['2018', 97],
+        ['2019', 51],
+        ['2020', 338],
+        ['2021', 32],
+        ['2022', 11],
+        ['2023', 1],
+    ]
+}]
+
+option = {
+    backgroundColor: 'rgba(1,202,217,.2)',
+    grid: {
+        left: '10%',
+        top: '5%',
+        bottom: '10%',
+        right: '5%',
+    },
+    legend: {
+        type: "scroll",
+        data: "来电量",
+        itemWidth: 18,
+        itemHeight: 12,
+        textStyle: {
+            color: "#00ffff",
+            fontSize: 14
+        },
+    },
+    yAxis: [{
+        type: 'value',
+        position: 'left',
+        nameTextStyle: {
+            color: '#00FFFF'
+        },
+        splitLine: {
+            lineStyle: {
+                type: 'dashed',
+                color: 'rgba(135,140,147,0.8)'
+            }
+        },
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        axisLabel: {
+            formatter: '{value}',
+            color: '#fff',
+            fontSize: 14
+        }
+    }, ],
+    xAxis: [{
+        type: 'category',
+        axisTick: {
+            show: false
+        },
+        axisLine: {
+            show: false,
+            lineStyle: {
+                color: '#0696f9',
+            }
+        },
+        axisLabel: {
+            inside: false,
+            textStyle: {
+                color: '#fff', // x轴颜色
+                fontWeight: 'normal',
+                fontSize: '14',
+                lineHeight: 22
+            }
+
+        },
+        data: XName,
+    }, ],
+    series: [{
+            symbolSize: 150,
+            symbol: img[2],
+            name: '小灯光',
+            type: "line",
+            data: data1,
+            itemStyle: {
+                normal: {
+                    borderWidth: 5,
+                    color: '#0696f9',
+                }
+            }
+        },
+        {
+            name: '滑行的光点',
+            type: 'lines',
+            coordinateSystem: 'cartesian2d',
+            symbolSize: 30,
+            polyline: true,
+            effect: {
+                show: true,
+                trailLength: 0,
+                symbol: "arrow",
+                period: 10, //光点滑动速度
+                symbolSize: 150,
+                symbol: img[0]
+            },
+            lineStyle: {
+                normal: {
+                    width: 1,
+                    opacity: 0.6,
+                    curveness: 0.2
+                }
+            },
+            data: data
+        }
+    ],
+};
+
+  myChart.setOption(option);
+</script>
+
+
+      var myChart = echarts.init(document.getElementById('arightboxbott'));
+      option = {
+        color:['#00ffff','#7fd7b1', '#5578cf', '#5ebbeb', '#d16ad8','#f8e19a',  '#00b7ee', '#81dabe','#5fc5ce'],
+          backgroundColor: 'rgba(1,202,217,.2)',
+
+          grid: {
+              left: '5%',
+              right: '8%',
+              bottom: '7%',
+              top:'8%',
+              containLabel: true
+          },
+          toolbox: {
+              feature: {
+                  saveAsImage: {}
+              }
+          },
+          xAxis: {
+              type: 'category',
+              boundaryGap: false,
+              axisLine:{
+                lineStyle:{
+                  color:'rgba(255,255,255,.2)'
+                }
+              },
+              splitLine:{
+                lineStyle:{
+                  color:'rgba(255,255,255,.1)'
+                }
+              },
+              axisLabel:{
+                  color:"rgba(255,255,255,.7)"
+              },
+              data: ['6-08','6-09','6-10','6-11','6-12','6-13','6-14']
+          },
+          yAxis: {
+              type: 'value',
+              axisLine:{
+                lineStyle:{
+                  color:'rgba(255,255,255,.2)'
+                }
+              },
+              splitLine:{
+                lineStyle:{
+                  color:'rgba(255,255,255,.1)'
+                }
+              },
+              axisLabel:{
+                  color:"rgba(255,255,255,.7)"
+              },
+          },
+          series: [
+              {
+                  name:'2014年',
+                  type:'line',
+                  stack: '总量',
+                    areaStyle: {normal: {}},
+                  data:[120, 132, 101, 134, 90, 230, 210]
+              }
+
+          ]
+          };
+      myChart.setOption(option);
+  </script> -->
+  <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('arightboxbott'));
+        var scale = 1;
+var echartData = [{
+    value: 2154,
+    name: '60-69岁'
+}, {
+    value: 3854,
+    name: '70-79岁'
+}, {
+    value: 3515,
+    name: '80-89岁'
+}, {
+    value: 3515,
+    name: '90-99岁'
+}, {
+    value: 3854,
+    name: '100岁及以上'
+}]
+var rich = {
+    yellow: {
+        color: "#ffc72b",
+        fontSize: 22.5 * scale,
+        padding: [5, 4],
+        align: 'center'
+    },
+    total: {
+        color: "#ffc72b",
+        fontSize: 30 * scale,
+        align: 'center'
+    },
+    white: {
+        color: "#fff",
+        align: 'center',
+        fontSize: 10.5 * scale,
+        padding: [21, 0]
+    },
+    blue: {
+        color: '#49dff0',
+        fontSize: 12 * scale,
+        align: 'center'
+    },
+    hr: {
+        borderColor: '#0b5263',
+        width: '100%',
+        borderWidth: 1,
+        height: 0,
+    }
+}
+option = {
+    backgroundColor: 'rgba(1,202,217,.2)',
+    title: {
+        text:'年龄占比',
+        left:'center',
+        top:'53%',
+        padding:[24,0],
+        textStyle:{
+            color:'#fff',
+            fontSize:18*scale,
+            align:'center'
+        }
+    },
+    legend: {
+        selectedMode:false,
+        formatter: function(name) {
+            var total = 0; 
+            var averagePercent; 
+            echartData.forEach(function(value, index, array) {
+                total += value.value;
+            });
+            return '{total|' + total + '}';
+        },
+        data: [echartData[0].name],
+        left: 'center',
+        top: 'center',
+        icon: 'none',
+        align:'center',
+        textStyle: {
+            color: "#fff",
+            fontSize: 16 * scale,
+            rich: rich
+        },
+    },
+    series: [{
+        name: '总考生数量',
+        type: 'pie',
+        radius: ['42%', '50%'],
+        hoverAnimation: false,
+        color: ['#c487ee', '#deb140', '#49dff0', '#034079', '#6f81da', '#00ffb4'],
+        label: {
+            normal: {
+                formatter: function(params, ticket, callback) {
+                    var total = 0; 
+                    var percent = 0; 
+                    echartData.forEach(function(value, index, array) {
+                        total += value.value;
+                    });
+                    percent = ((params.value / total) * 100).toFixed(1);
+                    return '{white|' + params.name + '}\n{hr|}\n{yellow|' + params.value + '}\n{blue|' + percent + '%}';
+                },
+                rich: rich
+            },
+        },
+        labelLine: {
+            normal: {
+                length: 35 * scale,
+                length2: 0,
+                lineStyle: {
+                    color: '#0b5263'
+                }
+            }
+        },
+        data: echartData
+    }]
+};
+        myChart.setOption(option);
+    </script>
+
+    <script type="text/javascript">
+    $(function(){
+        //使用echarts.init()方法初始化一个Echarts实例，在init方法中传入echarts map的容器 dom对象
+	var mapChart = echarts.init(document.getElementById('topmap2'));
+    var option = {
+      tooltip: {
+        trigger: 'item',
+      },
+      title: {
+        text: '',
+        x: "center",
+      },
+      geo: {
+        map: '安徽',
+        label: {},
+        roam: true,
+        label: {
+          normal: {
+            // show: true,
+            textStyle: {
+              position: 'center',
+              color: '#fff'
+            }
+          },
+          emphasis: {
+            // show: false
+          }
+        },
+        itemStyle: {
+          normal: {
+            areaColor: 'rgb(0,172,247)',
+            borderColor: '#fcfcfc',
+            borderWidth: 1
+          },
+          emphasis: {
+            areaColor: 'rgb(247,63,63)'
+          }
+        },
+      },
+      series: [{
+        name: '人数',
+        type: 'map',
+        coordinateSystem: 'geo',
+        rippleEffect: {
+          brushType: 'stroke'
+        },
+        label: {
+          normal: {
+            show: false,
+            position: 'right',
+            formatter: '{b}'
+          },
+          emphasis: {
+            // show: false
+          }
+        },
+        
+        
+      }]
+    };
+        mapChart.setOption(option);
+
+});
+
+
+
+
+    </script>
+
+
+</body>
+</html>

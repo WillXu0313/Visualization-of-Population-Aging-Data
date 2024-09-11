@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>返回提示页面</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .container {
+        margin-top: 100px;
+    }
+    .message {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="message">该地区没有统计数据，确定返回原来的页面吗？</div>
+    <button class="btn" onclick="goBack()">返回</button>
+</div>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+</body>
+</html>

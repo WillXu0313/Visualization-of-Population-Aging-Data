@@ -1,0 +1,206 @@
+body {
+    padding: 10px;
+    background: url(../images/bg_body.jpg);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    width: 1900px;
+    height: 83px;
+    line-height: 83px;
+    color: #FFFFFF;
+    font-size: 50px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px skyblue;
+    letter-spacing: 10px;
+    background: url(../images/bg_title.png) no-repeat;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#btn01 a {
+    text-decoration: none;
+    background-color: rgb(36, 67, 85);
+    color: whitesmoke;
+    -webkit-text-stroke: 0.2px rgb(66, 218, 252);
+    padding: 1px;
+    font-size: 21px;
+    font-weight: bold;
+    position: absolute;
+    border: 3px solid rgb(128, 177, 246);
+    border-radius: 15%;
+    transition: all 0.2s;
+    font-size: 22px;
+    font-weight: bold;
+    position: absolute;
+    right: 150px;
+    top: 75px;
+}
+
+#btn01 a:hover {
+    text-shadow: 0 0 20px skyblue;
+    transform: scale(1.04) translate(0, -4px);
+    box-shadow: 0 0 15px skyblue;
+}
+
+.container {
+    width: 1900px;
+}
+
+.col-lg-3,
+.col-lg-6 {
+    padding: 0;
+    margin: 0;
+}
+
+.m-20 {
+    margin-top: 20px;
+}
+
+.title {
+    width: 100%;
+    height: 60px;
+    font-size: 20px;
+    color: #ff9000;
+    line-height: 60px;
+    padding-left: 20px;
+    background: url(../images/title_icon.png) left center no-repeat;
+    float: left;
+}
+
+.box1 {
+    width: 455px;
+    height: 400px;
+    padding: 0 0 25px 25px;
+    background: url(../images/bg_box1.png) no-repeat;
+    float: left;
+}
+
+.box1_con {
+    width: 455px;
+    height: 340px;
+    float: left;
+}
+
+.box2 {
+    width: 455px;
+    height: 537px;
+    padding: 0 0 25px 25px;
+    background: url(../images/bg_box2.png) no-repeat;
+    float: left;
+}
+
+.box2_con {
+    width: 455px;
+    height: 500px;
+    float: left;
+}
+
+.box3 {
+    width: 100%;
+    height: 500px;
+    padding: 0 25px 25px 25px;
+    background: url(../images/bg_box3.png) no-repeat;
+    float: left;
+}
+
+.box3_con {
+    width: 100%;
+    height: 470px;
+    float: left;
+}
+
+.box3_con .box3_con_right {
+    width: 100%;
+    height: 470px;
+    float: left;
+}
+
+.box3_con_right .box3_con_right_bot {
+    width: 100%;
+    height: 440px;
+    margin-top: 0px;
+}
+
+.data_bg {
+    width: 180px;
+    height: 120px;
+    background: url(../images/data_icon.png) no-repeat;
+    margin-left: 30px;
+    text-align: center;
+    font-size: 24px;
+    color: #FFFFFF;
+    padding-top: 20px;
+}
+
+small {
+    font-size: 18px;
+    color: #FF9000;
+}
+
+.box4 {
+    width: 950px;
+    height: 435px;
+    padding: 0 25px 25px 25px;
+    background: url(../images/bg_box4.png) no-repeat;
+    float: left;
+}
+
+.box4_con {
+    width: 950px;
+    height: 370px;
+    float: left;
+}
+
+.box5 {
+    width: 455px;
+    height: 957px;
+    padding: 0 25px 25px 25px;
+    background: url(../images/bg_box5.png) no-repeat;
+    float: right;
+}
+
+.box5_con {
+    width: 455px;
+    height: 957px;
+    float: left;
+}
+
+.box5_con_top {
+    width: 420px;
+    height: 320px;
+    float: left;
+}
+
+.box5_con_bot {
+    width: 455px;
+    height: 550px;
+    float: left;
+}
+
+.box5_con_bot li {
+    width: 400px;
+    height: 60px;
+    line-height: 60px;
+    list-style: none;
+    border-bottom: 1px dashed #dbdbdb;
+
+}
+
+.box5_con_bot li a {
+    text-decoration: none;
+    color: #F5F5F5;
+    overflow: hidden;
+    /* 文本强制不换行 */
+    white-space: nowrap;
+    /* 要生效必须要写上前两个属性 */
+    text-overflow: ellipsis;
+    display: block;
+}
+.box5_con_bot li a:hover{
+    color: #FF9000;
+}
